@@ -1,18 +1,16 @@
 class Solution {
 public:
     int alternatingSum(vector<int>& nums) {
-        int sum = 0;
+        int ans = 0;
+        if(nums.size() % 2 == 1){
+            ans = ans + nums[nums.size() - 1];
 
-        for (int i = 0; i < nums.size(); i++) {
-            if (i % 2 == 0) {
-                sum += nums[i];   // even index → +
-            } else {
-                sum -= nums[i];   // odd index → -
-            }
         }
-
-        return sum;
-    }
+        for(int i = 0; i < nums.size() - 1; i+=2){
+            ans += nums[i] - nums[i + 1];
+        }
+        return ans;
+    }    
 };
 
 // Synced seamlessly with LeetHub Pro
